@@ -1,0 +1,148 @@
+
+.bottom-action__btn {
+  width: calc(100% - 40px);
+  max-width: 260px;
+  margin: 12px auto 10px auto;
+  height: 40px;
+  @include reset-btn-styles(80px, 0 15px);
+  @include flex-box(row, center, center);
+  @include box-shadow(-1px 2px 6px 1px, $mountain-mist);
+  i {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  span {
+    @include font-mixin(500, 14px, 1.2);
+  }
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.record__btn {
+  @include action-btn-styles($crimson, $white, 1px, $crimson);
+  &--recording {
+    background-color: $valencia !important;
+    border-color: $valencia !important;
+  }
+}
+
+/* Evaluation button */
+.show-eval-modal__btn {
+  @include action-btn-styles($white, $purple-heart, 3px, $purple-heart);
+  font-weight: 700;
+  &.evaluated {
+    @include action-btn-styles($purple-heart, $white, 3px, $purple-heart);
+    font-weight: 500;
+  }
+}
+
+.evaluation,
+.path-list {
+  &__btn {
+    padding: 10px;
+    line-height: 1 !important;
+    font-weight: 500;
+    border-radius: 5px;
+    i {
+      font-size: 14px;
+      margin-right: 8px;
+    }
+    span {
+      font-size: 12px;
+    }
+    &--cancel {
+      @include action-btn-styles($white, $dove-gray, 2px, $dove-gray);
+    }
+    &:disabled {
+      @include action-btn-styles($mountain-mist, $white, 1px, $mountain-mist);
+      opacity: 0.35 !important;
+    }
+  }
+}
+
+.evaluation {
+  &__btn {
+    &--submit {
+      @include action-btn-styles($purple-heart, $white, 2px, $purple-heart);
+    }
+  }
+}
+
+.map-selection {
+  &__btn {
+    padding: 10px;
+    line-height: 1 !important;
+    font-weight: 500;
+    border-radius: 5px;
+    i {
+      font-size: 14px;
+      margin-right: 8px;
+    }
+    span {
+      font-size: 12px;
+    }
+    &--change {
+      @include action-btn-styles($java, $white, 2px, $java);
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $java !important;
+        border-color: $java !important;
+        box-shadow: none !important;
+      }
+    }
+    &--cancel {
+      @include action-btn-styles($white, $dove-gray, 2px, $dove-gray);
+    }
+  }
+}
+
+.save-location-consent {
+  &__btn {
+      @include action-btn-styles($cerulean-blue, $white, 2px, $cerulean-blue);
+      width: 110px;
+      white-space: nowrap;
+      i {
+        font-size: 20px;
+        margin-right: 10px;
+      }
+      span {
+        @include font-mixin(500, 14px, 1.2);
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $cerulean-blue !important;
+        border-color: $cerulean-blue !important;
+        box-shadow: none !important;
+      }
+  }
+}
+
+.edit-path__btn {
+  @include action-btn-styles($cranberry, $white, 1px, $cranberry);
+}
+
+.discard-path__btn {
+  @include action-btn-styles($red-orange, $white, 1px, $red-orange);
+}
+
+.erase-path__btn {
+  @include action-btn-styles($gamboge, $white, 1px, $gamboge);
+}
+
+.draw-path__btn {
+  @include action-btn-styles($flame-pea, $white, 1px, $flame-pea);
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.save-path__btn {
+  @include action-btn-styles($ocean-green, $white, 1px, $ocean-green);
+}
+
+.undo-edit-path__btn {
+  @include action-btn-styles($golden-grass, $white, 1px, $golden-grass);
+}

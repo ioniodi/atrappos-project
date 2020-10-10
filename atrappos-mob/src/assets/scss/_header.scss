@@ -1,0 +1,47 @@
+header {
+  height: 34px;
+  padding: 0 15px;
+  background-color: $java;
+}
+
+.header {
+  @include flex-box(row, space-between, center);
+  &-modal__btns {
+    @include flex-box(row, space-between, center);
+    height: 34px;
+    button {
+      @include flex-box(row, center, center);
+      @include reset-btn-styles(20px, 2px 8px);
+      @include action-btn-styles($onahau, $elm, 0px, $white);
+      @include box-shadow(1px 1px 12px 1px, $elm);
+      width: 72px;
+      &:nth-child(2) {
+        margin-left: 10px;
+      }
+      i {
+        margin-right: 6px;
+        font-size: 14px;
+        line-height: 1.1;
+      }
+      span {
+        @include font-mixin(500, 12px, 14px);
+      }
+    }
+  }
+}
+
+
+.logo--map {
+  z-index: 3;
+  left: 11px;
+  height: 28px;
+  @include inline-flex-box(row, flex-start, center);
+  img {
+    width: 94px;
+  }
+  h1 {
+    font-size: 12px !important;
+    color: $porcelain;
+    margin: 0 0 0 5px;
+  }
+}

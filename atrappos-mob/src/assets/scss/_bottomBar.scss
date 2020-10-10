@@ -1,0 +1,106 @@
+.bottom-bar {
+  height: 3rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1010;
+  display: flex;
+  display: -webkit-flex;
+  &__part {
+    @include flex-box(row, space-between, center);
+    width: 50%;
+    background-color: $java;
+    height: 100%;
+    &--left {
+      border-top-right-radius: 80px;
+      a:nth-child(2) {
+        margin-right: 25px;
+        border-top-right-radius: 80px;
+      }
+    }
+    &--right {
+      border-top-left-radius: 80px;
+      a:first-child {
+        margin-left: 25px;
+        border-top-left-radius: 80px;
+      }
+    }
+  }
+
+    &:before {
+
+  }
+  nav {
+    height: 3rem;
+    width: 100%;
+    @include flex-box(row, space-between, center);
+    a {
+      text-decoration: none !important;
+      width:  100%;
+      height: 100%;
+      padding: 5px;
+      @include flex-box(column, flex-end, center);
+      i {
+        font-size: 16px;
+        color: $white;
+        opacity: 0.6;
+        margin-bottom: -3px;
+      }
+      span {
+        color: $white;
+        letter-spacing: 1px;
+        opacity: 0.7;
+        text-align: center;
+        white-space: nowrap;
+        @include font-mixin(400, 9px, 1.6);
+        @media only screen and (max-width: 340px) {
+          @include font-mixin(400, 8px, 1.6);
+        }
+      }
+      &.--active {
+        i {
+          opacity: 1;
+          font-size: 20px;
+          @include transition-mixin(all, 0.1s, linear);
+        }
+        span {
+          opacity: 1;
+        }
+      }
+      &.disabled {
+        i, span {
+          color: $gray-suit !important;
+        }
+      }
+    }
+  }
+  .toggle-expand {
+    width: 44px;
+    height: 44px;
+    background-color: $white;
+    padding: 5px;
+    border-radius: 50%;
+    position: absolute;
+    left: calc(50% - 22px);
+    cursor: pointer;
+    border: 2px solid $java;
+    @include flex-box(column, center, center);
+    bottom: 2px;
+    i {
+      color: $java;
+      font-size: 25px;
+      line-height: 30px;
+      @include transition-mixin(transform, 0.2s, linear);
+      &.down {
+        transform: rotate(180deg);
+      }
+      .up {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+}
+
+.popover-body {
+  font-family: $montserrat !important;
+}

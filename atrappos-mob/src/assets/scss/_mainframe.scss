@@ -1,0 +1,75 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: $montserrat;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+}
+
+.App {
+  height: 100%;
+}
+
+main {
+
+}
+h1 {
+  font-size: 22px !important;
+}
+
+h2 {
+  font-size: 20px !important;
+}
+
+h3 {
+  font-size: 18px !important;
+}
+
+h4 {
+  font-size: 16px !important;
+}
+
+h5 {
+  font-size: 14px !important;
+}
+
+.logo {
+  text-align: center;
+  text-decoration: none !important;
+}
+
+.logo--landing {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  img {
+    margin-bottom: 12px;
+    width: 245px;
+  }
+}
+
+.close-pop-overlay {
+  margin-left: auto;
+  margin-right: -5px;
+  display: block;
+  width: 20px;
+  text-align: center;
+  color: $sirocco;
+}
+
+
+
+

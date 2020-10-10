@@ -1,0 +1,20 @@
+.snap-overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(75, 147, 180, 0.7);
+  display: block;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  &__loader {
+    background-color: $white;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    border-radius: 20px;
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+    @include flex-box(column, center, center);
+  }
+}

@@ -1,0 +1,160 @@
+$primary-color: $sirocco;
+
+@mixin borderPreview($width, $clr) {
+  &-lvl-#{$width} {
+    &:before {
+      border-left: #{$width * 2}px solid $clr;
+    }
+  }
+}
+
+@mixin input-selection-mixin($primary-color) {
+    @include flex-box(row, flex-start, center);
+    margin: 10px auto;
+
+  .selection-tile-group {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    width: 100%;
+    .input-container {
+      @include flex-box(row, center, center);
+      position: relative;
+      height: 34px;
+      margin: 2px 0;
+
+      .selection-button {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        cursor: pointer;
+      }
+
+      .selection-tile {
+        @include flex-box(column, center, flex-start);
+        width: 100%;
+        height: 100%;
+        border: 2px solid $primary-color;
+        border-radius: 5px;
+        padding: 5px;
+      }
+
+      .selection-tile-label {
+        padding-left: 40px;
+        text-align: center;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin: 0 !important;
+        color: $primary-color;
+      }
+
+      .selection-button:checked + .selection-tile {
+        background-color: $primary-color;
+        border: 2px solid $primary-color;
+        color: white;
+        -webkit-animation: enlarge 0.2s ease-in-out 2;
+        -moz-animation: enlarge 0.2s ease-in-out 2;
+        -o-animation: enlarge 0.2s ease-in-out 2;
+        animation: enlarge 0.2s ease-in-out 1;
+        .selection-tile-label {
+          color: $white;
+          background-color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+.selection-container {
+  width: $eval-modal-widths;
+  &.subjective {
+    @include input-selection-mixin($gunsmoke);
+  }
+  &.objective {
+    @include input-selection-mixin($sirocco);
+  }
+}
+
+.subjective {
+  .selection-tile-label {
+    &:before {
+      position: absolute;
+      display: block;
+      content: "";
+      margin-top: 0;
+      height: 18px;
+      width: 18px;
+      margin-left: -30px;
+    }
+  }
+  &-lvl-5 {
+    &:before {
+      background-color: $malachite;
+    }
+  }
+  &-lvl-4 {
+    &:before {
+      background-color: $dodger-blue;
+    }
+  }
+  &-lvl-3 {
+    &:before {
+      background-color: $heliotrope;
+    }
+  }
+  &-lvl-2 {
+    &:before {
+      background-color: $tango;
+    }
+  }
+  &-lvl-1 {
+    &:before {
+      background-color: $torch-red;
+    }
+  }
+}
+
+.objective {
+  .selection-tile-label {
+    &:before {
+      position: absolute;
+      display: block;
+      content: "";
+      transform: rotate(45deg);
+      margin-top: 5px;
+      height: 18px;
+      width: 18px;
+      margin-left: -26px;
+    }
+  }
+  @include borderPreview(1, $sirocco);
+  @include borderPreview(2, $sirocco);
+  @include borderPreview(3, $sirocco);
+  @include borderPreview(4, $sirocco);
+  @include borderPreview(5, $sirocco);
+
+  .selection-button:checked + .selection-tile .selection-tile-label.objective {
+    @include borderPreview(1, $white);
+    @include borderPreview(2, $white);
+    @include borderPreview(3, $white);
+    @include borderPreview(4, $white);
+    @include borderPreview(5, $white);
+  }
+}
+
+.objective-lvl-def {
+  padding-left: 10px !important;
+  white-space: nowrap;
+}
+.subjective-lvl-def {
+  padding-left: 10px !important;
+  white-space: nowrap;
+}

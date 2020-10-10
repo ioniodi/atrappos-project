@@ -1,0 +1,603 @@
+@mixin borderPreview($width, $clr) {
+  &-lvl-#{$width} {
+    &:before {
+      border-left: #{$width * 2}px solid $clr;
+    }
+  }
+}
+.main {
+  text-align: left;
+  .nav-tabs a,
+  .tab-content {
+    background-color: white;
+  }
+  .nav-tabs {
+    flex-direction: column;
+    padding-top: 110px;
+    background-color: $white;
+    z-index: 2;
+    a {
+      color: $eastern-blue;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      border: 0;
+      outline: none;
+      padding: 10px 15px 10px 10px !important;
+      border-radius: 0;
+      position: relative;
+      &.active {
+        color: $white;
+        background-color: $java;
+        &:after {
+          width: 0;
+          height: 0;
+          border-top: 6px solid transparent;
+          border-bottom: 6px solid transparent;
+          border-right: 8px solid $white;
+          position: absolute;
+          right: -2px;
+          content: "";
+        }
+      }
+      span {
+        &.tab-title {
+          font-size: 10px;
+          margin-left: 3px;
+          font-weight: 600;
+        }
+        &.tab-icon {
+          width: 25px;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .tab-content {
+    width: 320px;
+    overflow: hidden;
+    height: 100vh;
+    border-left: 1px solid $mischka;
+  }
+  .nav-tabs .nav-link.disabled {
+    opacity: 0.6;
+    cursor: not-allowed !important;
+  }
+  #path-actions-tabs-tabpane-paths,
+  #path-actions-tabs-tabpane-map,
+  #path-actions-tabs-tabpane-community,
+  #path-actions-tabs-tabpane-faq {
+    overflow-y: auto;
+    height: 100%;
+    padding: 24px 20px 40px 20px;
+  }
+}
+
+
+.tab__inner {
+  .path-actions {
+    &--label {
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 2px !important;
+      color: $shark;
+      &__wrapper {
+        display: flex;
+        align-items: center;
+      }
+      &__description {
+        margin-top: 17px;
+      }
+      &__evaluation {
+        > span {
+          @include flex-box(row, flex-start, center)
+        }
+      }
+    }
+    &--caption {
+      font-size: 10px;
+    }
+  }
+
+  input[type="text"] {
+    font-size: 12px;
+    border-radius: 5px;
+    border: 1px solid $spun-pearl;
+    padding: 7px 7px 4px 7px;
+    outline: none !important;
+    margin-bottom: 25px;
+  }
+  #path-description {
+    margin-top: 4px;
+  }
+  &--path-fields {
+    display: flex;
+    flex-direction: column;
+    animation: slide-left 0.3s ease-in-out;
+    width: 259px;
+    h2 {
+      cursor: pointer;
+      i {
+        font-size: 24px;
+        margin-right: 15px;
+      }
+    }
+    .tltp--wrapper {
+      margin-left: 5px;
+      margin-top: 2px;
+      .menu__btn--tltp {
+        color: $eastern-blue;
+        cursor: pointer;
+        font-size: 1rem !important;
+      }
+      .show.popover.bs-popover-top {
+        bottom: 5px !important;
+        left: -4px !important;
+      }
+      .show.popover.bs-popover-right {
+        top: -5px !important;
+        left: 12px !important;
+      }
+    }
+  }
+  &--path-list {
+    display: flex;
+    flex-direction: column;
+    width: 259px;
+    &.animate {
+      animation: slide-right 0.3s ease-in-out;
+    }
+  }
+  &--path-community {
+
+  }
+}
+
+.path-list {
+  &--outer {
+    @include flex-box(row, space-between, center);
+    margin-top: 15px;
+  }
+
+  &--wrapper {
+    position: relative;
+    max-height: 255px;
+    -moz-box-shadow: 10px 10px 10px $black-haze 0 0 10px $black-haze;
+    -webkit-box-shadow: 10px 10px 10px $black-haze, 0 0 10px $black-haze;
+    box-shadow: 2px 2px 12px $black-haze, 0 0 2px $black-haze;
+    width: calc(100% + 20px);
+    max-width: 290px;
+    margin-left: -10px;
+    border-radius: 5px;
+  }
+
+  &--container {
+    overflow-y: auto;
+    max-height: 255px;
+    display: block;
+    padding: 25px 10px 25px 5px;
+    margin-right: -20px;
+  }
+
+  &--empty {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    width: 260px;
+    color: $sirocco;
+
+    i {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+  }
+
+  &--item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 15px;
+    border-bottom: 1px solid $wild-sand;
+    max-width: 260px;
+    padding: 0 0 3px 5px !important;
+    margin: 0 0 5px -5px !important;
+    &_show,
+    &_delete,
+    &_edit {
+      width: 26px;
+      height: 26px;
+      display: flex !important;
+      padding: 2px !important;
+      text-align: center !important;
+      justify-content: center;
+      align-items: center;
+      outline: none !important;
+
+      i {
+        vertical-align: middle;
+        font-size: 14px;
+        height: 18px;
+      }
+    }
+
+    &_show {
+      background-color: $blue-violet !important;
+      border: 1px solid $blue-violet !important;
+      &:focus {
+        box-shadow: none !important;
+      }
+      &.selected {
+        box-shadow: 0 0 0 4px rgba(205, 35, 160, 0.8) !important;
+      }
+    }
+
+    &_edit,
+    &_delete {
+      margin-left: 5px;
+    }
+    &_name {
+      font-size: 12px;
+      max-width: 130px;
+      width: 105px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      display: inline-block;
+      font-style: initial !important;
+      vertical-align: middle;
+      margin-left: 3px;
+    }
+    &__user {
+      position: relative;
+      &:before {
+        position: absolute;
+        left: 0;
+        border-left: 2px solid $steel-blue;
+        height: 16px;
+        content: "";
+        display: block;
+        top: 3px;
+      }
+    }
+  }
+
+  &--btns {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__info--wrapper {
+    @include flex-box(row, flex-start, center);
+    &:hover {
+      cursor: pointer;
+      > div > i > span {
+        > .bubble__icon {
+          color: darken($steel-blue, 30%);
+        }
+
+        color: $steel-blue !important;
+
+      }
+    }
+
+    .popover {
+      max-width: initial;
+      margin-left: -5px;
+    }
+
+    .subjective {
+      &-lvl-5 {
+        &:before {
+          background-color: $malachite;
+        }
+      }
+
+      &-lvl-4 {
+        &:before {
+          background-color: $dodger-blue;
+        }
+      }
+
+      &-lvl-3 {
+        &:before {
+          background-color: $heliotrope;
+        }
+      }
+
+      &-lvl-2 {
+        &:before {
+          background-color: $tango;
+        }
+      }
+
+      &-lvl-1 {
+        &:before {
+          background-color: $torch-red;
+        }
+      }
+    }
+
+    .objective {
+      @include borderPreview(1, $sirocco);
+      @include borderPreview(2, $sirocco);
+      @include borderPreview(3, $sirocco);
+      @include borderPreview(4, $sirocco);
+      @include borderPreview(5, $sirocco);
+
+    }
+  }
+
+  &-communitypaths--row__btn--tltp,
+  &-userpaths--row__btn--tltp {
+    cursor: pointer;
+    @include path-details-mixin($steel-blue);
+    margin-right: 2px;
+  }
+
+  &__tltp {
+    &--content {
+      font-family: $spartan !important;
+      @include flex-box(column, flex-start, flex-start);
+    }
+
+    &--info {
+      @include flex-box(row, flex-start, flex-start);
+      margin-bottom: 3px;
+
+      &__label {
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__sel--label {
+    display: block;
+    padding-left: 10px;
+    @include flex-box(row, flex-start, flex-end);
+    i {
+      margin-right: 5px;
+      color: $eastern-blue;
+    }
+  }
+
+  &__obj--label {
+    padding-left: 25px !important;
+    &:before {
+      position: absolute;
+      display: block;
+      content: "";
+    }
+    &.objective:before {
+      border-color: $sirocco !important;
+      height: 14px;
+      width: 10px;
+      transform: rotate(45deg);
+      margin: 2px 0 3px -18px;
+    }
+  }
+  &__header {
+    margin: 20px 0 0 0;
+    position: relative;
+    color: $eastern-blue;
+    left: -10px;
+    > span {
+      @include font-mixin(600, 16px, 1);
+    }
+  }
+  &__subj--label {
+    padding-left: 25px !important;
+    &:before {
+      position: absolute;
+      display: block;
+      content: "";
+    }
+    &.subjective:before {
+      height: 12px;
+      width: 12px;
+      margin: 3px 0 6px -17px;
+    }
+  }
+
+  &__subheader {
+    padding: 10px 0 5px 10px;
+    position: relative;
+    margin: 10px 0 0 -10px;
+    @include flex-box(row, flex-start, flex-end);
+    font-size: 14px !important;
+    font-weight: 400;
+    line-height: 1;
+    &:before {
+      position: absolute;
+      left: 0;
+      bottom: 7px;
+      border-left: 3px solid $java;
+      height: 20px;
+      content: "";
+      display: block;
+    }
+  }
+}
+
+/* Override a bit... */
+.path-list__tltp--content.path-list {
+  .path-list__tltp--info__label {
+    width: 96px !important;
+  }
+  .path-list__sel--label {
+    width: calc(100% - 96px);
+  }
+}
+
+.path-list__tltp--content.path-map {
+  .path-list__tltp--info__label {
+    width: 55px !important;
+  }
+  .path-list__sel--label {
+    width: calc(100% - 55px);
+  }
+}
+
+
+.path-btns {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  &--controls {
+    margin: 8px auto;
+  }
+  &--polyline {
+    margin: 2px auto 3px auto;
+    &__wrapper {
+      @include flex-box(column, space-between, flex-start);
+    }
+  }
+  &--add {
+    justify-content: flex-end;
+    height: 40px;
+    padding: 30px 0 00;
+  }
+  &--save {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  &--eval {
+    margin: 0 auto 3px auto;
+    &__wrapper {
+      @include flex-box(column, space-between, flex-start);
+    }
+  }
+  &--notification {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: $crimson;
+    top: 3px;
+    @include font-mixin(600, 11px, 1);
+    &__wrapper {
+      position: relative;
+      width: 238px;
+      margin: 3px 0 38px 0;
+      animation: pulse-animation 1.5s ease-in-out infinite both;
+    }
+  }
+  .btn {
+    width: 100%;
+    padding: 0 6px 0 6px;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 0.25rem;
+    height: 35px;
+    &:disabled {
+      filter: grayscale(100%);
+     -webkit-filter: grayscale(90%);
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    span {
+      font-size: 12px;
+      font-weight: 500;
+      vertical-align: middle;
+    }
+    i {
+      font-size: 18px;
+      margin-right: 8px;
+    }
+    &.path--polyline {
+      @include action-btn-mixin($terracotta);
+    }
+
+    &.path--edit__positions {
+      @include action-btn-mixin($turkish-rose);
+    }
+
+    &.path--edit__styles {
+      @include action-btn-mixin($steel-blue);
+      &--changed {
+        background-color: $white !important;
+        color: $steel-blue !important;
+        &:hover:not(:disabled) {
+          box-shadow: 2px 2px 8px $steel-blue, 0 0 2px $steel-blue !important;
+        }
+      }
+    }
+    &.path--erase{
+      @include action-btn-mixin($valencia);
+    }
+
+    &.path--save {
+      @include action-btn-mixin($ocean-green);
+      margin-top: 10px;
+    }
+
+    &.path--add {
+      background-color: $white;
+      color: $crimson !important;
+      border: 2px solid $crimson !important;
+      border-radius: 20px;
+      margin: 0 -10px 30px -10px;
+      height: 34px;
+      width: 115px;
+      @include flex-box (row, center, center);
+      span {
+        font-weight: 700 !important;
+        font-size: 14px !important;
+      }
+      &:hover {
+        background-color: $crimson;
+        color: $white !important;
+      }
+      &:focus {
+        background-color: $crimson;
+        border-color: $crimson;
+        color: $white !important;
+      }
+      &:active {
+        background-color: $crimson !important;
+        border-color: $crimson !important;
+        color: $white !important;
+      }
+    }
+  }
+}
+
+@keyframes slide-left {
+  0%{ transform: translateX(100%)}
+  100% { transform: translateX(0)}
+}
+
+@keyframes slide-right{
+  0%{ transform: translateX(-100%)}
+  100% { transform: translateX(0)}
+}
+
+/* View */
+.leaflet-control-layers-overlays {
+
+  label {
+
+    max-width: 200px;
+
+    span {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 180px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+.select-result {
+  &__wrapper {
+    position: relative;
+  }
+  @include font-mixin(600, 12px, 1.2);
+  display: inline-block;
+  color: $blue-violet;
+  position: absolute;
+  right: 6px;
+  top: -4px;
+}

@@ -1,0 +1,104 @@
+.faq {
+  @include flex-box(column, flex-start, flex-start);
+  &__container {
+    margin-top: 20px;
+  }
+  &__item {
+    margin-top: 10px;
+  }
+  &__title {
+    @include font-mixin(600, 14px, 1.2);
+    color: $shark;
+  }
+  &__big-title {
+    @include font-mixin(700, 16px, 1.2);
+    color: $shark;
+  }
+  &__text {
+    @include font-mixin(400, 14px, 1.4);
+    color: $shark;
+    p {
+      margin: 5px 0 !important;
+    }
+    b {
+      &.important-notice {
+        color: $crimson;
+      }
+    }
+  }
+  &__tltp {
+    color: $eastern-blue;
+    font-size: 1.2rem;
+    margin: 0 0 -3px 5px;
+    vertical-align: sub;
+  }
+  ol {
+    margin: 5px 0 !important;
+  }
+  &__btn {
+    @include action-btn-styles($java, $white, 2px, $java);
+    padding: 10px;
+    line-height: 1 !important;
+    font-weight: 500;
+    border-radius: 5px;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $java !important;
+      border-color: $java !important;
+      box-shadow: none !important;
+    }
+    i {
+      font-size: 14px;
+      margin-right: 8px;
+    }
+    span {
+      font-size: 14px;
+    }
+    &--wrapper {
+      margin: 15px 0 0 0;
+      padding-right: 5px;
+      @include flex-box(row, flex-end, center);
+    }
+  }
+}
+
+/* Sprite */
+
+.bg-faq {
+  background-image: url("../../assets/img/faq_sprite.png");
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bg-unicorn_cat {
+  width: 200px; height: 217px;
+  background-position:  -10px -10px;
+  margin-top: 12px;
+}
+
+.bg-map_draw_toolbar {
+  width: 200px; height: 35px;
+  background-position:  -230px -79px;
+  margin-top: 15px;
+}
+
+.bg-map_erase_toolbar {
+  width: 200px; height: 49px;
+  background-position:  -230px -10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.bg-map_location {
+  width: 59px; height: 57px;
+  background-position:  -230px -134px;
+  margin-top: 15px;
+}
+
+.bg-menu_collapse {
+  width: 57px; height: 51px;
+  background-position:  -309px -134px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}

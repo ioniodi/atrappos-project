@@ -1,0 +1,47 @@
+@mixin triangle ($size, $color, $direction) {
+  height: 0;
+  width: 0;
+
+  $width: nth($size, 1);
+  $height: nth($size, length($size));
+  $foreground-color: nth($color, 1);
+  $background-color: transparent !default;
+  @if (length($color) == 2) {
+    $background-color: nth($color, 2);
+  }
+
+  @if $direction == right {
+    $width: $width / 2;
+    border-top: $width solid $background-color;
+    border-bottom: $width solid $background-color;
+    border-left: $height solid $foreground-color;
+  }
+
+  @if $direction == down-right {
+    border-bottom: $height solid $foreground-color;
+    border-left:  $width solid $background-color;
+  }
+}
+
+.path-list__ribbon {
+  margin-top: 20px;
+  position: relative;
+  color: $white;
+  @include font-mixin(500, 14px, 1);
+  @include flex-box(row, flex-start, center);
+  width: 130px;
+  height: 28px;
+  line-height: 28px;
+  background: $cadillac;
+  left: -15px;
+  &:after {
+    @include triangle(28px 15px, $cadillac, right);
+    content: "";
+    position: absolute;
+    right: -15px;
+  }
+  > span {
+    padding-left: 25px;
+  }
+}
+

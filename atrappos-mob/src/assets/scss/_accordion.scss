@@ -1,0 +1,33 @@
+.card {
+  overflow: visible;
+  .card-header {
+    padding: 5px 10px;
+    color: $porcelain;
+    i {
+      margin-right: 8px;
+    }
+    span {
+      @include font-mixin(500, 14px, 1.2);
+    }
+  }
+  .card-body {
+    padding: 15px;
+    .path-actions {
+      @include flex-box(column, flex-start, flex-start);
+      &--label {
+        @include font-mixin(700, 14px, 1.4);
+        margin: 0 !important;
+        color: $shark;
+      }
+      &--caption {
+        @include font-mixin(500, 12px, 1.2);
+      }
+    }
+  }
+  &.evaluation__card {
+    .card-header {
+      background-color: $steel-blue;
+      border: 1px solid $steel-blue;
+    }
+  }
+}

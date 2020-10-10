@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css?family=Spartan:400,500,600,700&display=swap');
+$spartan: 'Spartan', sans-serif;
+
+/* Colors */
+
+$white: #ffffff;
+
+/* Final visual enumeration */
+/* lvl-5 */
+$malachite: #12C416;
+/* lvl-4 */
+$dodger-blue: #3D7AF5;
+/* lvl-3 */
+$heliotrope: #B054F8;
+/* lvl-2 */
+$tango: #F27418;
+/* lvl-1 */
+$torch-red: #F41A1A;
+
+/* radio bg */
+$gallery: #eeeeee;
+
+/* radio bg hover */
+$silver: #cccccc;
+
+$shark: #1E2024;
+$ocean-green: #3d9c72;
+$vista-blue: #7ECDAA;
+
+$radio-bg: $gallery;
+$radio-bg-hover: $silver;
+
+$eastern-blue: #19869a;
+$eden: #104F5B;
+$scooter: #24c0db;
+$java: #20adc5;
+$curious-blue: #209CC5;
+$mischka: #E6E5E8;
+$spun-pearl: #B1AEB7;
+$shark: #25272C;
+$terracotta: #df7153;
+$tonys-pink: #e7957e;
+$glacier: #6eaec4;
+$steel-blue: #4a9ab5;
+$oriental-pink: #c38d9e;
+$turkish-rose: #b9798d;
+
+$crimson: #CE1253;
+$sunglo: #e26060;
+$valencia: #db3d3d;
+$prim: #eddee3;
+
+$polar: #e9f9fb;
+$sirocco: #6D7778;
+$black-haze: #e4e7e7;
+$skeptic: #C4E4CA;
+$killarney: #305A38;
+$dust-storm: #E4C4C6;
+$buccaneer: #5A3033;
+$wild-sand: #f6f6f6;
+$alizaring-crimson: #E32636;
+$purple-heart: #5244D5;
+$cobalt: #084DB4;
+$blue-violet: #646BB4;
+$green-haze: #09B35E;
+$nobel: #b3b2b2;
+$elm: #217B8C;
+
+
+
+/* MIXINS */
+
+@mixin font-mixin($weight, $size, $line, $family: $spartan) {
+  font: normal normal $weight #{$size}/#{$line} $family;
+}
+
+@mixin flex-box($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin action-btn-mixin($bg) {
+  background-color: $bg;
+  border-color: $bg;
+  &:focus {
+    background-color: $bg;
+    border-color: $bg;
+  }
+  &:hover {
+    &:not(:disabled) {
+      box-shadow: 4px 4px 8px $sirocco, 0 0 4px $sirocco !important;
+      background-color: darken($bg, 15%);
+      border-color: darken($bg, 15%);
+    }
+  }
+}
+
+@mixin borderPreview($width) {
+  &.lvl-#{$width} {
+    &:before {
+      border-left: #{$width * 2}px solid $sirocco;
+    }
+  }
+}
+
+@mixin box-shadow($dimensions, $color) {
+  -moz-box-shadow: $dimensions $color;
+  -webkit-box-shadow: $dimensions $color;
+  -o-box-shadow: $dimensions $color;
+  box-shadow: $dimensions $color;
+}
+
+@mixin flip-horizontally-mixin {
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+@mixin path-details-mixin ($clr) {
+  .path-details__icons {
+    margin-bottom: 2px;
+    width: 21px;
+    height: 21px;
+    display: inline-block;
+    position: relative;
+    .bubble__icon {
+      color: $clr;
+      font-size: 18px;
+      @include flip-horizontally-mixin();
+      display: inline-block;
+    }
+    .info__icon {
+      color: $white;
+      font-size: 8px;
+      position: absolute;
+      top: 1.3px;
+      left: 7.5px;
+    }
+  }
+}
+
+@keyframes pulse-animation {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+

@@ -1,0 +1,81 @@
+.bottom-container {
+  bottom: 0;
+  display: block;
+  width: 100%;
+  z-index: 1000;
+  position: fixed;
+  background-color: $porcelain;
+  max-height: 0;
+  overflow: hidden;
+  height: 100%;
+  @include box-shadow(0 -5px 5px -5px, $dove-gray);
+  @include transition-mixin(max-height, 0.35s, ease-in-out);
+  &.expanded {
+    padding-bottom: 3.3rem;
+    @include transition-mixin(max-height, 0.35s, ease-in-out);
+    &.location {
+      max-height: 165px;
+      &.recording {
+        max-height: 220px !important;
+      }
+      &.recorded-path {
+        max-height: 325px !important;
+      }
+    }
+    &.draw {
+      max-height: 220px;
+    }
+    &.drawn-path {
+      max-height: 325px;
+    }
+    &.pathlist {
+      max-height: 100vh;
+      &.selected-path {
+        max-height: 270px !important;
+      }
+    }
+    &.community {
+      max-height: 100vh;
+    }
+  }
+  &__content {
+    padding: 45px 15px 2rem 15px;
+    overflow-y: auto;
+    height: 100%;
+    h5 {
+      padding: 8px 0 8px 0;
+      text-align: center;
+      color: $persian-green;
+      font-weight: 500;
+      @include box-shadow(1px 1px 20px 1px, $dove-gray);
+      width: calc(100%);
+      margin-left: -15px;
+      position: absolute;
+      background-color: $porcelain;
+      top: 0;
+      z-index: 1010;
+       > span {
+         width: 55vw;
+         white-space: nowrap;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         display: inline-block;
+         vertical-align: bottom;
+       }
+    }
+  }
+}
+
+.bottom__content {
+  height: 100%;
+}
+
+.disable-draw__notification {
+  color: $crimson;
+  position: absolute;
+  @include font-mixin(600, 11px, 1.2);
+  margin-top: -18px;
+  margin-left: -15px;
+  text-align: center;
+  width: 100%;
+}

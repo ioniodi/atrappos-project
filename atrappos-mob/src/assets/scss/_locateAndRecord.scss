@@ -1,0 +1,13 @@
+.record__btn {
+  margin: 10px auto;
+  display: block;
+  @include reset-btn-styles(20px);
+  @include action-btn-styles($crimson, $white, 1px, $crimson);
+  font-size: 14px;
+  &--recording {
+    background-color: $valencia !important;
+  }
+  i {
+    margin-right: 7px;
+  }
+}
